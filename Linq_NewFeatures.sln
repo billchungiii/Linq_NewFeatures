@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NET6", "NET6", "{8D2883D4-6133-44B4-A683-2CC73A0013FA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NET7", "NET7", "{5CDF1237-1D71-4492-92BF-396699BF23F6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NET9", "NET9", "{DC604272-0FF6-432C-806D-CF9B7E4B7A7A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Linq_NET6", "NET6\Linq_NET6\Linq_NET6.csproj", "{9E8FA876-2BF5-44C3-804E-118C06953846}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9E8FA876-2BF5-44C3-804E-118C06953846}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E8FA876-2BF5-44C3-804E-118C06953846}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E8FA876-2BF5-44C3-804E-118C06953846}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E8FA876-2BF5-44C3-804E-118C06953846}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9E8FA876-2BF5-44C3-804E-118C06953846} = {8D2883D4-6133-44B4-A683-2CC73A0013FA}
+	EndGlobalSection
+EndGlobal
