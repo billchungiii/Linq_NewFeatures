@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace Linq_NET6
+﻿namespace NET6_MaxByMinBySample
 {
     internal class Program
     {
@@ -17,7 +13,6 @@ namespace Linq_NET6
             };
 
             #region MaxBy
-
             // before .NET 6
             // var oldestPerson1 = people.OrderByDescending(p => p.Age).First();
             var oldestPerson1 = people.CallOrderByDescThenFirst(p => p.Age);
@@ -36,12 +31,25 @@ namespace Linq_NET6
             #endregion
 
             #region MinBy
+            // before .NET 6
+            // var youngestPerson1 = people.OrderBy(p => p.Age).First();
+            var youngestPerson1 = people.CallOrderByThenFirst(p => p.Age);
+            Console.WriteLine($"[before NET6 (1)] Youngest person: {youngestPerson1.Name}, Age: {youngestPerson1.Age}");
 
+            // before .NET 6
+            //int minAge = people.Min(p => p.Age);
+            //var youngestPerson2 = people.First(p => p.Age == minAge);
+            var youngestPerson2 = people.CallMinThenFirst(p => p.Age);
+
+            Console.WriteLine($"[before NET6 (2)] Youngest person: {youngestPerson2.Name}, Age: {youngestPerson2.Age}");
+
+            // after .NET 6
+            //var youngestPerson3 = people.MinBy(p => p.Age);
+            var youngestPerson3 = people.CallMinBy(p => p.Age);
+            Console.WriteLine($"[after NET6] Youngest person: {youngestPerson3.Name}, Age: {youngestPerson3.Age}");
             #endregion
         }
     }
-
-
 
     public class Person
     {

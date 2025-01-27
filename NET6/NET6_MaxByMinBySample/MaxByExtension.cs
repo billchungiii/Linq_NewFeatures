@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Linq_NET6
+namespace NET6_MaxByMinBySample
 {
     public static class MaxByExtension
     {
@@ -35,6 +35,14 @@ namespace Linq_NET6
             return source.First(p => keySelector(p).Equals(max));
         }
 
+        /// <summary>
+        /// After .NET6, MaxBy
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="TKey"></typeparam>
+        /// <param name="source"></param>
+        /// <param name="keySelector"></param>
+        /// <returns></returns>
         public static T CallMaxBy<T, TKey>(this IEnumerable<T> source, Func<T, TKey> keySelector)
         {
             return source.MaxBy(keySelector);

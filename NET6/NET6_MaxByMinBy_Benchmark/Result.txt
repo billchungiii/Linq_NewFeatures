@@ -1,0 +1,36 @@
+﻿// * Summary *
+
+BenchmarkDotNet v0.14.0, Windows 11 (10.0.22631.4751/23H2/2023Update/SunValley3)
+12th Gen Intel Core i7-1265U, 1 CPU, 12 logical and 10 physical cores
+.NET SDK 9.0.200-preview.0.24575.35
+  [Host]     : .NET 9.0.0 (9.0.24.52809), X64 RyuJIT AVX2
+  DefaultJob : .NET 9.0.0 (9.0.24.52809), X64 RyuJIT AVX2
+
+
+| Method                   | Mean     | Error     | StdDev    | Gen0   | Allocated |
+|------------------------- |---------:|----------:|----------:|-------:|----------:|
+| CallOrderByDescThenFirst | 4.348 us | 0.0579 us | 0.0542 us | 0.0153 |     128 B |
+| CallMaxThenFirst         | 4.446 us | 0.0699 us | 0.0653 us | 0.1144 |     760 B |
+| CallMaxBy                | 3.727 us | 0.0327 us | 0.0306 us | 0.0038 |      40 B |
+| CallOrderByThenFirst     | 4.913 us | 0.0583 us | 0.0545 us | 0.0153 |     128 B |
+| CallMinThenFirst         | 3.870 us | 0.0435 us | 0.0407 us | 0.0381 |     280 B |
+| CallMinBy                | 3.654 us | 0.0565 us | 0.0501 us | 0.0038 |      40 B |
+
+
+// * Summary *
+
+BenchmarkDotNet v0.14.0, Windows 11 (10.0.22631.4751/23H2/2023Update/SunValley3)
+12th Gen Intel Core i7-1265U, 1 CPU, 12 logical and 10 physical cores
+.NET SDK 9.0.200-preview.0.24575.35
+  [Host]     : .NET 9.0.0 (9.0.24.52809), X64 RyuJIT AVX2
+  DefaultJob : .NET 9.0.0 (9.0.24.52809), X64 RyuJIT AVX2
+
+
+| Method                   | Mean     | Error     | StdDev    | Gen0   | Allocated |
+|------------------------- |---------:|----------:|----------:|-------:|----------:|
+| CallOrderByDescThenFirst | 4.406 us | 0.0863 us | 0.0848 us | 0.0153 |     128 B |
+| CallMaxThenFirst         | 4.511 us | 0.0591 us | 0.0553 us | 0.1068 |     712 B |
+| CallMaxBy                | 3.659 us | 0.0350 us | 0.0292 us | 0.0038 |      40 B |
+| CallOrderByThenFirst     | 4.730 us | 0.0684 us | 0.0640 us | 0.0153 |     128 B |
+| CallMinThenFirst         | 3.944 us | 0.0670 us | 0.0627 us | 0.0763 |     520 B |
+| CallMinBy                | 3.633 us | 0.0588 us | 0.0550 us | 0.0038 |      40 B |
