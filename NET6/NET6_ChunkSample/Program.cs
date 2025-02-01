@@ -41,16 +41,16 @@ namespace NET6_ChunkSample
 
         }
 
-        static IEnumerable<Person[]> CustomChunk(IEnumerable<Person> source, int size)
+        static IEnumerable<T[]> CustomChunk<T>(IEnumerable<T> source, int size)
         {
             if (source == null)
             {
                 throw new ArgumentNullException(nameof(source));
             }
-            var queue = new Queue<Person>(source);
+            var queue = new Queue<T>(source);
             while (queue.Count > 0)
             {
-                var chunk = new Person[Math.Min(size, queue.Count)];
+                var chunk = new T[Math.Min(size, queue.Count)];
                 for (int i = 0; i < chunk.Length; i++)
                 {
                     chunk[i] = queue.Dequeue();

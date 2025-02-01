@@ -12,7 +12,7 @@ namespace NET6_ChunkBenchmark
     }
 
     [MemoryDiagnoser]
-    public class  ChunkBenchmark
+    public class ChunkBenchmark
     {
         private List<Person> _people;
 
@@ -33,7 +33,7 @@ namespace NET6_ChunkBenchmark
         [Arguments(43)]
         public void CallChunk(int size)
         {
-           var result = _people.Chunk(size);
+            var result = _people.Chunk(size).ToList();
         }
 
         [Benchmark]
@@ -42,19 +42,19 @@ namespace NET6_ChunkBenchmark
         [Arguments(43)]
         public void CallCustomChunk(int size)
         {
-            var result = CustomChunk(_people, size);
+            var result = CustomChunk(_people, size).ToList();
         }
 
-        static IEnumerable<Person[]> CustomChunk(IEnumerable<Person> source, int size)
-        {            
+        static IEnumerable<T[]> CustomChunk<T>(IEnumerable<T> source, int size)
+        {
             if (source == null)
             {
                 throw new ArgumentNullException(nameof(source));
             }
-            var queue = new Queue<Person>(source);
+            var queue = new Queue<T>(source);
             while (queue.Count > 0)
             {
-                var chunk = new Person[Math.Min(size, queue.Count)];
+                var chunk = new T[Math.Min(size, queue.Count)];
                 for (int i = 0; i < chunk.Length; i++)
                 {
                     chunk[i] = queue.Dequeue();
