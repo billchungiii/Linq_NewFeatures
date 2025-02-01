@@ -12,7 +12,7 @@ namespace NET6_MaxByMinBy_Benchmark
 
 
     [MemoryDiagnoser]
-    public class MaxByBenchmark
+    public class MaxByMinByBenchmark
     {
         private List<Person> _people;
 
@@ -68,7 +68,7 @@ namespace NET6_MaxByMinBy_Benchmark
     {
         static void Main(string[] args)
         {
-            var summary = BenchmarkRunner.Run<MaxByBenchmark>();
+            var summary = BenchmarkRunner.Run<MaxByMinByBenchmark>();
         }
     }
 }

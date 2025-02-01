@@ -11,8 +11,4 @@
     <PackageReference Include="BenchmarkDotNet" Version="0.14.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\NET6_MaxByMinBySample\NET6_MaxByMinBySample.csproj" />
-  </ItemGroup>
-
 </Project>
