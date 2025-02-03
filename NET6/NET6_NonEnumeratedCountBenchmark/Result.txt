@@ -1,0 +1,45 @@
+﻿// * Summary *
+
+BenchmarkDotNet v0.14.0, Windows 11 (10.0.22631.4751/23H2/2023Update/SunValley3)
+12th Gen Intel Core i7-1265U, 1 CPU, 12 logical and 10 physical cores
+.NET SDK 9.0.200-preview.0.25057.12
+  [Host]     : .NET 9.0.1 (9.0.124.61010), X64 RyuJIT AVX2
+  DefaultJob : .NET 9.0.1 (9.0.124.61010), X64 RyuJIT AVX2
+
+
+| Method                           | Mean         | Error      | StdDev     | Median       |
+|--------------------------------- |-------------:|-----------:|-----------:|-------------:|
+| CallCustomCount_People           |     3.442 ns |  0.1031 ns |  0.1058 ns |     3.409 ns |
+| CallCount_People                 |     4.360 ns |  0.1211 ns |  0.2056 ns |     4.330 ns |
+| CallCustomCount_SelectAge        |     1.655 ns |  0.0489 ns |  0.0382 ns |     1.653 ns |
+| CallCount_SelectAge              | 1,269.816 ns | 29.5624 ns | 86.7013 ns | 1,253.890 ns |
+| CallCustomCount_OrderBy          |    19.590 ns |  1.2523 ns |  3.6924 ns |    17.444 ns |
+| CallCount_OrderBy                |    13.127 ns |  0.3050 ns |  0.5500 ns |    13.198 ns |
+| CallCustomCount_WhereOrderBy     |   636.515 ns | 12.7756 ns | 19.8901 ns |   639.559 ns |
+| CallCount_WhereOrderBy           |   628.010 ns | 11.7456 ns | 11.5357 ns |   628.727 ns |
+| CallCustomCount_SelectAgeOrderBy |     3.471 ns |  0.0999 ns |  0.0885 ns |     3.498 ns |
+| CallCount_SelectAgeOrderBy       | 1,215.613 ns | 24.1754 ns | 45.4072 ns | 1,217.556 ns |
+
+
+// * Summary *
+
+BenchmarkDotNet v0.14.0, Windows 11 (10.0.22631.4751/23H2/2023Update/SunValley3)
+12th Gen Intel Core i7-1265U, 1 CPU, 12 logical and 10 physical cores
+.NET SDK 9.0.200-preview.0.25057.12
+  [Host]     : .NET 9.0.1 (9.0.124.61010), X64 RyuJIT AVX2
+  DefaultJob : .NET 9.0.1 (9.0.124.61010), X64 RyuJIT AVX2
+
+
+| Method                           | Mean         | Error      | StdDev     |
+|--------------------------------- |-------------:|-----------:|-----------:|
+| CallCustomCount_People           |     4.015 ns |  0.1194 ns |  0.2059 ns |
+| CallCount_People                 |     3.537 ns |  0.1126 ns |  0.2030 ns |
+| CallCustomCount_SelectAge        |     1.507 ns |  0.0705 ns |  0.0754 ns |
+| CallCount_SelectAge              | 1,024.929 ns | 20.5122 ns | 28.7552 ns |
+| CallCustomCount_OrderBy          |    14.764 ns |  0.3236 ns |  0.4429 ns |
+| CallCount_OrderBy                |    11.504 ns |  0.2714 ns |  0.3432 ns |
+| CallCustomCount_WhereOrderBy     |   535.035 ns | 10.5585 ns | 12.5692 ns |
+| CallCount_WhereOrderBy           |   539.504 ns | 10.2631 ns | 25.7480 ns |
+| CallCustomCount_SelectAgeOrderBy |     2.985 ns |  0.0838 ns |  0.0743 ns |
+| CallCount_SelectAgeOrderBy       | 1,013.673 ns | 20.0785 ns | 28.1473 ns |
+
