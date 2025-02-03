@@ -1,5 +1,6 @@
 ﻿using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Running;
+using System.Runtime.CompilerServices;
 
 namespace NET6_ChunkBenchmark
 {
@@ -44,6 +45,7 @@ namespace NET6_ChunkBenchmark
         {
             var result = CustomChunk(_people, size).ToList();
         }
+        [MethodImpl(MethodImplOptions.NoInlining)]
 
         static IEnumerable<T[]> CustomChunk<T>(IEnumerable<T> source, int size)
         {
