@@ -8,23 +8,29 @@ namespace NET6_NonEnumeratedCountSample
         static void Main(string[] args)
         {
             var random = new Random();
-            IEnumerable<Person> range = Enumerable.Range(1, 1000).Select(i => new Person
+            IEnumerable<int> range = Enumerable.Range(1, 1000);
+            IEnumerable<Person> people = range.Select(i => new Person
             {
                 Name = $"Name_{i}",
                 Age = random.Next(10, 81)
             });
-
             Display(range);
-            Display(range.ToList());
-            Display(range.ToArray());
-            Display(range.Where(p => p.Age > 20));
-            Display(range.Select(p => p.Age));
-            Display(range.Where(p => p.Age > 20).Select(p => p.Age));
-            Display(range.GroupBy(x => x.Age / 10));
-            Display(range.DistinctBy(x => x.Age));
-            Display(range.Distinct(new PersonAgeComparer()));
-            Display(range.OrderBy(x => x.Age));
-            Display(range.Where(x => x.Age > 20).OrderBy(x => x.Age));
+            if (range is ICollection<int>)
+            {
+                Console.WriteLine("range is ICollection<int>");
+            }
+            Display(people);
+           
+            Display(people.ToList());
+            Display(people.ToArray());
+            Display(people.Where(p => p.Age > 20));
+            Display(people.Select(p => p.Age));
+            Display(people.Where(p => p.Age > 20).Select(p => p.Age));
+            Display(people.GroupBy(x => x.Age / 10));
+            Display(people.DistinctBy(x => x.Age));
+            Display(people.Distinct(new PersonAgeComparer()));
+            Display(people.OrderBy(x => x.Age));
+            Display(people.Where(x => x.Age > 20).OrderBy(x => x.Age));
 
             Display(GetStrings());
             Display(GetStrings().Select(x => x));
@@ -37,6 +43,10 @@ namespace NET6_NonEnumeratedCountSample
 
             var repeat = Enumerable.Repeat(new Person { Name = "Name", Age = 30 }, 10);
             Display(repeat);
+            if (repeat is ICollection<Person>)
+            {
+                Console.WriteLine("repeat is ICollection<Person>");
+            }
 
             int[] array1 = { 1, 2, 3, 4, 5 };
             int[] array2 = { 1, 3, 4, 7, 9 };
