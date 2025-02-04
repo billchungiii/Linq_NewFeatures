@@ -39,6 +39,14 @@ namespace NET6_ChunkSample
                 index++;
             }
 
+            IEnumerable<Person[]> chunkedPeople3 = CustomChunkV2(people, 3);
+            index = 1;
+            foreach (var chunk in chunkedPeople3)
+            {
+                Console.WriteLine($"CustomChunkV2 {index}: {string.Join(", ", chunk.Select(p => p.Name))}");
+                index++;
+            }
+
         }
 
         static IEnumerable<T[]> CustomChunk<T>(IEnumerable<T> source, int size)
@@ -54,6 +62,30 @@ namespace NET6_ChunkSample
                 for (int i = 0; i < chunk.Length; i++)
                 {
                     chunk[i] = queue.Dequeue();
+                }
+                yield return chunk;
+            }
+        }
+
+        static IEnumerable<T[]> CustomChunkV2<T>(IEnumerable<T> source, int size)
+        {
+            if (source == null)
+            {
+                throw new ArgumentNullException(nameof(source));
+            }
+            using var enumerator = source.GetEnumerator();
+            while (enumerator.MoveNext())
+            {
+                var chunk = new T[size];
+                for (int i = 0; i < size; i++)
+                {
+                    chunk[i] = enumerator.Current;
+                    if (!enumerator.MoveNext())
+                    {
+                        Array.Resize(ref chunk, i + 1);
+                        yield return chunk;
+                        yield break;
+                    }
                 }
                 yield return chunk;
             }

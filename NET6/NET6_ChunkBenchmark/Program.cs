@@ -21,7 +21,7 @@ namespace NET6_ChunkBenchmark
         public void Setup()
         {
             var random = new Random();
-            _people = Enumerable.Range(1, 1000).Select(i => new Person
+            _people = Enumerable.Range(1, 500000).Select(i => new Person
             {
                 Name = $"Name_{i}",
                 Age = random.Next(10, 81)
@@ -45,6 +45,19 @@ namespace NET6_ChunkBenchmark
         {
             var result = CustomChunk(_people, size).ToList();
         }
+
+
+        [Benchmark]
+        [Arguments(3)]
+        [Arguments(7)]
+        [Arguments(43)]
+        public void CallCustomChunkV2(int size)
+        {
+            var result = CustomChunkV2(_people, size).ToList();
+        }
+
+
+
         [MethodImpl(MethodImplOptions.NoInlining)]
 
         static IEnumerable<T[]> CustomChunk<T>(IEnumerable<T> source, int size)
@@ -60,6 +73,30 @@ namespace NET6_ChunkBenchmark
                 for (int i = 0; i < chunk.Length; i++)
                 {
                     chunk[i] = queue.Dequeue();
+                }
+                yield return chunk;
+            }
+        }
+        [MethodImpl(MethodImplOptions.NoInlining)]
+        static IEnumerable<T[]> CustomChunkV2<T>(IEnumerable<T> source, int size)
+        {
+            if (source == null)
+            {
+                throw new ArgumentNullException(nameof(source));
+            }
+            using var enumerator = source.GetEnumerator();
+            while (enumerator.MoveNext())
+            {
+                var chunk = new T[size];
+                for (int i = 0; i < size; i++)
+                {
+                    chunk[i] = enumerator.Current;
+                    if (!enumerator.MoveNext())
+                    {
+                        Array.Resize(ref chunk, i + 1);
+                        yield return chunk;
+                        yield break;
+                    }
                 }
                 yield return chunk;
             }
