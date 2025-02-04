@@ -20,9 +20,13 @@ namespace NET6_ChunkSample
                     new Person { Name = "Isabella", Age = 30 },
                     new Person { Name = "Benjamin", Age = 31 },
                     new Person { Name = "Mia", Age = 32 },
-                    new Person { Name = "Lucas", Age = 27 }
+                    new Person { Name = "Lucas", Age = 27 },
+                    new Person { Name = "Jack", Age = 32 }
                 };
-            IEnumerable<Person[]> chunkedPeople = people.Chunk(3);
+
+            int size = 3;
+
+            IEnumerable<Person[]> chunkedPeople = people.Chunk(size);
             int index = 1;
             foreach (var chunk in chunkedPeople)
             {
@@ -31,7 +35,7 @@ namespace NET6_ChunkSample
             }
 
 
-            IEnumerable<Person[]> chunkedPeople2 = CustomChunk(people, 3);
+            IEnumerable<Person[]> chunkedPeople2 = CustomChunk(people, size );
             index = 1;
             foreach (var chunk in chunkedPeople2)
             {
@@ -39,7 +43,7 @@ namespace NET6_ChunkSample
                 index++;
             }
 
-            IEnumerable<Person[]> chunkedPeople3 = CustomChunkV2(people, 3);
+            IEnumerable<Person[]> chunkedPeople3 = CustomChunkV2(people, size);
             index = 1;
             foreach (var chunk in chunkedPeople3)
             {
