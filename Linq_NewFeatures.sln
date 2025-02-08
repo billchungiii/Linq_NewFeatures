@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NET6_NonEnumeratedCountSamp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NET6_NonEnumeratedCountBenchmark", "NET6\NET6_NonEnumeratedCountBenchmark\NET6_NonEnumeratedCountBenchmark.csproj", "{85B20905-801D-4AB9-AB8B-DE880EA3CB7C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NET6_DefaultValueSample", "NET6\NET6_DefaultValueSample\NET6_DefaultValueSample.csproj", "{0A3FFD0B-7245-49C4-BAE8-76A13143096B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{85B20905-801D-4AB9-AB8B-DE880EA3CB7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{85B20905-801D-4AB9-AB8B-DE880EA3CB7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{85B20905-801D-4AB9-AB8B-DE880EA3CB7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A3FFD0B-7245-49C4-BAE8-76A13143096B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A3FFD0B-7245-49C4-BAE8-76A13143096B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A3FFD0B-7245-49C4-BAE8-76A13143096B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A3FFD0B-7245-49C4-BAE8-76A13143096B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -62,5 +68,6 @@ Global
 		{74A47DD6-B5EE-4C55-A198-DA056C3D93BC} = {8D2883D4-6133-44B4-A683-2CC73A0013FA}
 		{358EDFAD-AC0D-40B4-86B6-C3E79C5D69D9} = {8D2883D4-6133-44B4-A683-2CC73A0013FA}
 		{85B20905-801D-4AB9-AB8B-DE880EA3CB7C} = {8D2883D4-6133-44B4-A683-2CC73A0013FA}
+		{0A3FFD0B-7245-49C4-BAE8-76A13143096B} = {8D2883D4-6133-44B4-A683-2CC73A0013FA}
 	EndGlobalSection
 EndGlobal
