@@ -1,4 +1,4 @@
-﻿namespace NET6_DistinctBySample001
+﻿namespace NET6_DistinctBySample
 {
     internal class Program
     {
@@ -32,7 +32,7 @@
     {
         public bool Equals(string x, string y)
         {
-            if (x== null && y == null) { return true; }
+            if (x == null && y == null) { return true; }
             if (x == null || y == null) { return false; }
             return x.Length == y.Length;
         }
