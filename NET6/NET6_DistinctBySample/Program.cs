@@ -32,7 +32,7 @@
     {
         public bool Equals(string x, string y)
         {
-            if (x == null && y == null) { return true; }
+            if (x == y) { return true; }
             if (x == null || y == null) { return false; }
             return x.Length == y.Length;
         }
